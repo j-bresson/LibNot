@@ -1,0 +1,16 @@
+;;;===========================================================================
+;;; LibNot
+;;; Library for score display and editing / OM bindings
+;;;===========================================================================
+
+(:om-lib
+ (:version 0.1)
+ (:doc "Library for score display and editing")
+ (:author "J. Bresson")
+ (:source-files
+  (:pathname (:directory (:relative "sources")) (:name "libnot"))
+  (:pathname (:directory (:relative "sources")) (:name "score-object"))
+ )
+)
+
+
