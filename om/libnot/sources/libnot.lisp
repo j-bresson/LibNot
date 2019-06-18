@@ -28,9 +28,7 @@
         (om-fi::om-load-foreign-library 
          "LibNot"
          `(;; (:macosx ,(om-fi::om-foreign-library-pathname "libLibNot.dylib"))
-           (:macosx ,(merge-pathnames 
-                      "lib/mac/symbolist.dylib" 
-                      (om::mypathname (om::find-library "libnot"))))
+           (:macosx ,(merge-pathnames "lib/mac/libLibNot.dylib" (om::mypathname (om::find-library "libnot"))))
            (t (:default "LibNot"))))))
 
 (push :libnot *features*)
