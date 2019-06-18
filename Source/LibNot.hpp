@@ -26,8 +26,20 @@
 
 LIBNOT_API const char* libNotInfo();
 
+LIBNOT_API void* libNotNewScore();
+LIBNOT_API void* libNotFreeScore();
+LIBNOT_API void* libNotNewChord();
+LIBNOT_API void* libNotFreeChord();
+LIBNOT_API void* libNotaddNote(void* libnot_chord, int libnot_pitch);
+LIBNOT_API void* libNotaddChord(void* libnot_score, void* libnot_chord );
+
+LIBNOT_API void* libNotsetTree(void* libnot_score , void* libnot_tree );
+
+
 LIBNOT_API void* libNotNewEditor();
 LIBNOT_API void libNotFreeEditor(void* libNot_editor);
+
+LIBNOT_API void* libNotEditorSetScore(void* libNot_editor, void* libNot_score);
 
 LIBNOT_API void libNotOpenWindow(void* libNot_editor);
 LIBNOT_API void libNotCloseWindow(void* libNot_editor);

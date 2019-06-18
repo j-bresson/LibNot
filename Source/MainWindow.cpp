@@ -15,5 +15,6 @@ void MainWindow::closeButtonPressed()
     // whatever you need.
     // JUCEApplication::getInstance()->systemRequestedQuit();
     
-    editor->closeWindow();
+    editor.get()->closeWindow();
 }
+

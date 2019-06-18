@@ -2,8 +2,6 @@
 //  LibNotEditor.cpp
 //  LibNot
 //
-//  Created by Jean Bresson on 12/02/2019.
-//
 
 #include "LibNotEditor.hpp"
 
@@ -15,13 +13,16 @@ void LibNotEditor::openWindow()
     const MessageManagerLock mml;
     //std::cout << "Current MML: " << mml.lockWasGained() << std::endl ;
     
-    window.reset (new MainWindow ("Note Editor", this));
+    window.reset (new MainWindow ("LibNot Editor"));
+    window.get()->setEditor( *this );    // std::make_shared<LibNotEditor>(this) );
 }
+
 
 void LibNotEditor::closeWindow()
 {
     const MessageManagerLock mml;
-    window = nullptr;
+    delete window.get();  // will actually close the Juce Window...
+    // window.reset(); // window = nullptr;
     executeCloseCallback();
 }
 

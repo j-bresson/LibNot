@@ -29,18 +29,12 @@ class LibNotEditor ;
 class MainWindow : public DocumentWindow {
     
 public:
-    MainWindow (String name, LibNotEditor *ed)  : DocumentWindow (name,
-                                                Desktop::getInstance().getDefaultLookAndFeel()
-                                                .findColour (ResizableWindow::backgroundColourId),
-                                                DocumentWindow::allButtons)
+    MainWindow (String name)  : DocumentWindow (name,
+                                        Desktop::getInstance().getDefaultLookAndFeel().findColour(ResizableWindow::backgroundColourId),
+                                        DocumentWindow::allButtons)
     {
-        editor = ed;
-        
         setUsingNativeTitleBar (true);
         setContentOwned (new MainComponent(), true);
-        
-        // #if JUCE_IOS || JUCE_ANDROID
-        // setFullScreen (true);
 
         setResizable (true, true);
         centreWithSize (getWidth(), getHeight());
@@ -51,9 +45,13 @@ public:
     void closeButtonPressed() override ;
     
     
+    // const std::shared_ptr<LibNotEditor> getEditor() { return editor; } ;
+    const LibNotEditor &getEditor() { return *editor.get(); } ;
+    void setEditor(LibNotEditor &ed) { editor = std::make_shared<LibNotEditor>(ed) ; } ;
+    
 private:
     
-    LibNotEditor* editor;
+    std::shared_ptr<LibNotEditor> editor;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
     

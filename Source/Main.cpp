@@ -10,6 +10,8 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "LibNotEditor.hpp"
+#include "Score.hpp"
+#include <iostream>
 
 //==============================================================================
 class LibNotApplication  : public JUCEApplication
@@ -25,18 +27,26 @@ public:
     //==============================================================================
     void initialise (const String& commandLine) override
     {
-        // This method is where you should put your application's initialisation code..
-
+        // s will then come from OM / external host environment
+        std::shared_ptr<Score> s = std::make_shared<Score>( makeTestScore() ) ;
+        
+        std::cout << "SCORE CREATED" << std::endl;
+        
+        editor.setScore( *s.get() );
+        
+        std::cout << "SCORE SET TO EDITOR" << std::endl;
+        
         // mainWindow.reset (new MainWindow (getApplicationName()));
-        editor.reset (new LibNotEditor());
-        editor->openWindow();
+        // editor.reset (new LibNotEditor());
+        editor.openWindow();
+        
+        std::cout << "WINDOW OPEN / END INITIALIZE" << std::endl;
     }
 
     void shutdown() override
     {
         // Add your application's shutdown code here..
-        editor->closeWindow();
-        editor = nullptr;
+        editor.closeWindow();
         
         // mainWindow = nullptr; // (deletes our window)
     }
@@ -57,11 +67,48 @@ public:
     }
 
 private:
-    std::unique_ptr<MainWindow> mainWindow;
-    std::unique_ptr<LibNotEditor> editor;
+
+    LibNotEditor editor;
+    
+    
+    Score makeTestScore()
+    {
+        
+        Score s;
+        Chord c1("A"), c2("B"), c3("C");
+        std::cout << "CHORDS CREATED" << std::endl;
+        c1.addNote(6000);
+        c1.addNote(6500);
+        c1.addNote(6700);
+        c1.setDate(0);
+        
+        c2.addNote(7000);
+        c2.addNote(7500);
+        c1.setDate(1000);
+        
+        c3.addNote(5200);
+        c3.addNote(5800);
+        c3.addNote(6100);
+        c3.setDate(1800);
+        
+        std::cout << "CHORDS SET" << std::endl;
+        
+        s.addChord( c1 );
+        s.addChord( c2 );
+        s.addChord( c3 );
+        std::cout << "CHORDS ADDED" << std::endl;
+        
+        s.print();
+        return s;
+        
+    };
+    
     
 };
 
 //==============================================================================
 // This macro generates the main() routine that launches the app.
 START_JUCE_APPLICATION (LibNotApplication)
+
+
+
