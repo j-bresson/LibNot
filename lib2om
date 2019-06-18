@@ -1,0 +1,8 @@
+
+cp ./Builds/MacOSX/DerivedData/LibNot/Build/Products/Debug/libLibNot.dylib ../OM/OM7/om/resources/lib/mac/
+
+cp ./Builds/MacOSX/DerivedData/LibNot/Build/Products/Debug/libLibNot.dylib ../OM/OM7/om/om7-beta.app/Contents/Frameworks/
+
+cp ./Builds/MacOSX/DerivedData/LibNot/Build/Products/Debug/libLibNot.dylib ./om/libnot/lib/mac/
+
+exit 0
