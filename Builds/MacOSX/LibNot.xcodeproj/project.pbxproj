@@ -54,6 +54,7 @@
 		44DDAE5722B78FD700CD6615 /* Chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DDAE5522B78FD700CD6615 /* Chord.cpp */; };
 		44DDAE5822B78FD700CD6615 /* Chord.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DDAE5522B78FD700CD6615 /* Chord.cpp */; };
 		44DDAE5922B78FD700CD6615 /* Chord.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 44DDAE5622B78FD700CD6615 /* Chord.hpp */; };
+		44DDAE5E22BA348D00CD6615 /* ScoreRenderer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44DDAE5C22BA348D00CD6615 /* ScoreRenderer.cpp */; };
 		6196AFC0945B631A99BE20B3 /* Main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 62C466F375830AD150663F1F /* Main.cpp */; };
 		69D7D88C607A5DFE8DC495F3 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A253431E745650A0C94020F /* IOKit.framework */; };
 		7AB2E3FFC876DE17E16DE1DB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0496192EF6322A398933773E /* WebKit.framework */; };
@@ -119,6 +120,8 @@
 		44DDAE5122B78FB900CD6615 /* RhythmTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = RhythmTree.hpp; path = ../../Source/RhythmTree.hpp; sourceTree = "<group>"; };
 		44DDAE5522B78FD700CD6615 /* Chord.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Chord.cpp; path = ../../Source/Chord.cpp; sourceTree = "<group>"; };
 		44DDAE5622B78FD700CD6615 /* Chord.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = Chord.hpp; path = ../../Source/Chord.hpp; sourceTree = "<group>"; };
+		44DDAE5C22BA348D00CD6615 /* ScoreRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = ScoreRenderer.cpp; path = ../../Source/ScoreRenderer.cpp; sourceTree = "<group>"; };
+		44DDAE5D22BA348D00CD6615 /* ScoreRenderer.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ScoreRenderer.hpp; path = ../../Source/ScoreRenderer.hpp; sourceTree = "<group>"; };
 		46DFD3CEB37F1EFFE247EC47 /* include_juce_graphics.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_graphics.mm; path = ../../JuceLibraryCode/include_juce_graphics.mm; sourceTree = SOURCE_ROOT; };
 		4CAAF3E22A880A52F067ACCB /* juce_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_core; path = /Users/bresson/SRC/JUCE/modules/juce_core; sourceTree = "<absolute>"; };
 		4F7DF16941E20E1578406D73 /* juce_audio_formats */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_formats; path = /Users/bresson/SRC/JUCE/modules/juce_audio_formats; sourceTree = "<absolute>"; };
@@ -234,6 +237,8 @@
 				442E9A562212D896001BC6CB /* LibNot.cpp */,
 				44DDAE5A22B7D57200CD6615 /* Model */,
 				44DDAE5B22B7D57A00CD6615 /* Views */,
+				44DDAE5D22BA348D00CD6615 /* ScoreRenderer.hpp */,
+				44DDAE5C22BA348D00CD6615 /* ScoreRenderer.cpp */,
 				442E9A5A2212D903001BC6CB /* LibNotEditor.hpp */,
 				442E9A592212D903001BC6CB /* LibNotEditor.cpp */,
 			);
@@ -477,6 +482,7 @@
 				442E9A5B2212D903001BC6CB /* LibNotEditor.cpp in Sources */,
 				D9512952DF02E23B2F4F7F81 /* MainComponent.cpp in Sources */,
 				442E9AB222147092001BC6CB /* ScoreComponent.cpp in Sources */,
+				44DDAE5E22BA348D00CD6615 /* ScoreRenderer.cpp in Sources */,
 				6196AFC0945B631A99BE20B3 /* Main.cpp in Sources */,
 				44DDAE5722B78FD700CD6615 /* Chord.cpp in Sources */,
 				06B5B306C3CEFCF8EF28474A /* include_juce_audio_basics.mm in Sources */,

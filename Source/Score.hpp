@@ -31,26 +31,33 @@ public:
     
     void reset() { chords.clear(); };
     
-    void addChord( const Chord c ) { chords.push_back(c) ; };
+    void addChord( std::shared_ptr<Chord> c_ptr ) {
+        
+//        std::cout << "push " << &c << " in " << &chords << std::endl;
+//        std::shared_ptr<Chord> c_ptr;
+//        c_ptr.reset( &c );
+        chords.push_back( c_ptr ) ;
+    };
+    
     
     void print ()
     {
         std::cout << "==== SCORE: ====" << std::endl;
-        for ( auto c : chords )
+        for ( auto &c : chords )
         {
-            std::cout << c.print() << " ";
+            std::cout << c->print() << " ";
             std::cout << std::endl ;
         }
         std::cout << "================" << std::endl;
     }
     
     unsigned long getNumChords () const { return chords.size() ; }
-    const Chord &getChord (int i) const { return chords.at(i) ; }
+    std::shared_ptr<Chord> & getChord ( const int i ) { return chords.at(i) ; }
     
 
 private:
 
-    std::vector<Chord> chords;
+    std::vector<std::shared_ptr<Chord>> chords;
     RhythmTree tree;
     
 };

@@ -22,8 +22,8 @@ MainComponent::MainComponent()
 void MainComponent::resized ()
 {
     auto area = getLocalBounds();
-    auto topPanelHeight = 28;
-    auto bottomPanelHeight = 50;
+    auto topPanelHeight = 30;
+    auto bottomPanelHeight = 30;
     top_panel.setBounds (area.removeFromTop (topPanelHeight));
     bottom_panel.setBounds (area.removeFromBottom (bottomPanelHeight));
     main_panel.setBounds(area);

@@ -29,9 +29,10 @@ class LibNotEditor ;
 class MainWindow : public DocumentWindow {
     
 public:
-    MainWindow (String name)  : DocumentWindow (name,
-                                        Desktop::getInstance().getDefaultLookAndFeel().findColour(ResizableWindow::backgroundColourId),
-                                        DocumentWindow::allButtons)
+    MainWindow (String name)  : DocumentWindow(name,
+                                               // Desktop::getInstance().getDefaultLookAndFeel().findColour(ResizableWindow::backgroundColourId),
+                                               Colours::darkgrey,
+                                               DocumentWindow::allButtons)
     {
         setUsingNativeTitleBar (true);
         setContentOwned (new MainComponent(), true);
@@ -46,12 +47,22 @@ public:
     
     
     // const std::shared_ptr<LibNotEditor> getEditor() { return editor; } ;
-    const LibNotEditor &getEditor() { return *editor.get(); } ;
-    void setEditor(LibNotEditor &ed) { editor = std::make_shared<LibNotEditor>(ed) ; } ;
+    const LibNotEditor &getEditor() {
+   
+        return *editor ;
+    
+    } ;
+    
+    void setEditor( LibNotEditor * ed ) {
+    
+        editor = ed ;
+    
+    } ;
     
 private:
     
-    std::shared_ptr<LibNotEditor> editor;
+    // I can't figure out how to do this using smart pointers :(
+    LibNotEditor * editor ;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainWindow)
     

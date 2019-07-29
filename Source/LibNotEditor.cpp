@@ -13,16 +13,24 @@ void LibNotEditor::openWindow()
     const MessageManagerLock mml;
     //std::cout << "Current MML: " << mml.lockWasGained() << std::endl ;
     
-    window.reset (new MainWindow ("LibNot Editor"));
-    window.get()->setEditor( *this );    // std::make_shared<LibNotEditor>(this) );
+    window = std::make_shared< MainWindow > ( "LibNot Editor" ) ;
+    window->setEditor( this );
 }
+
+/*
+ void LibNotEditor::openWindow(std::shared_ptr<LibNotEditor> &owner)
+{
+    const MessageManagerLock mml;
+    window = std::make_shared< MainWindow > ( "LibNot Editor" ) ;
+    window.get()->setEditor( owner );
+}
+ */
 
 
 void LibNotEditor::closeWindow()
 {
     const MessageManagerLock mml;
-    delete window.get();  // will actually close the Juce Window...
-    // window.reset(); // window = nullptr;
+    window.reset() ;  // will actually free the shared_ptr and close the Juce Window...
     executeCloseCallback();
 }
 

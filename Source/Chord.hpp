@@ -57,7 +57,8 @@ public:
         std::cout << "Chord copied " << c.name << "(" << c.n << ")"<< " => " << this->name << "(" << this->n << ")"<< std::endl;
     } ;
 
-    void setDate (const int newDate) { date = newDate; } ;
+    void setDate ( const int newDate ) { date = newDate; } ;
+    const int getDate () const { return date; } ;
     
     void addNote (const int pitch) { pitches.push_back(pitch); } ;
     

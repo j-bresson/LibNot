@@ -14,19 +14,21 @@
 #include "MainWindow.hpp"
 #include "Score.hpp"
 
+// : std::enable_shared_from_this<LibNotEditor>
 
-class LibNotEditor {
+class LibNotEditor  {
     
 public:
     
     LibNotEditor() {
-    // need to call this once to create a MessageManager
-    MessageManager::getInstance();
+        // need to call this once to create a MessageManager
+        MessageManager::getInstance();
     }
     
     ~LibNotEditor() = default;
     
     void openWindow();
+    // void openWindow( std::shared_ptr<LibNotEditor> &owner );
     void closeWindow();
     void windowToFront();
     void windowSetName(std::string name);
@@ -38,21 +40,21 @@ public:
     void executeUpdateCallback(int arg) { if (update_callback) { update_callback( this, arg ); } }
     
     const std::shared_ptr<Score> getScore( ) const { return score; } ;
-    void setScore(Score &s) { score = std::make_shared<Score>(s) ; } ;
+    void setScore(std::shared_ptr<Score> s) { score = s ; } ;
 
     const float getFontSize() const { return font_size ; } ;
     const staff_t getStaff() const { return staff ; } ;
     
     // A static method to get the Editor from any Juce::Component in the editor window
-    static const LibNotEditor& getLibNotEditor(Component *c)
+    static const LibNotEditor & getLibNotEditor( const Component *c )
     {
         return ((MainWindow*) c->getTopLevelComponent())->getEditor() ;
     }
 
 private:
     
-    std::shared_ptr<MainWindow> window;
-    std::shared_ptr<Score> score;
+    std::shared_ptr<MainWindow> window = nullptr;
+    std::shared_ptr<Score> score = nullptr ;
     
     float font_size = 24.0;
     staff_t staff = GF;

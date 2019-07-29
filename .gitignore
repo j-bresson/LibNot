@@ -3,3 +3,5 @@
 *.*fasl
 *.lisp~
 *.dylib
+Builds/MacOSX/LibNot.xcodeproj/project.xcworkspace/xcuserdata/bresson.xcuserdatad/UserInterfaceState.xcuserstate
+
